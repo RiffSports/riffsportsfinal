@@ -42,13 +42,42 @@ python scripts/build_sports_seed.py  # regenera supabase/seed.sql
   etc.), nunca hex soltos em componente.
 - Valores confirmados no Figma: app `#121515`, petróleo `#031D24` (login, cadastro, cabeçalho),
   card `#2B2F30`, chip `#425155`, campo `#3D4344` com borda `#969999`, texto `#EEF3F3`,
-  amarelo `#F1D86E` com texto `#232F32`, secundário/desativado `#666666`.
+  amarelo `#F1D86E` com texto `#232F32`, secundário `#666666`, botão desativado `#969999` com
+  texto `#425155` ("States/Global/Disable"), linha `#EAEAEA`.
 - Fonte Roboto variável; campos usam a largura condensada (`font-condensed`).
 - Raios: 4 / 8 / 16 / 20 (cards) / 24 (botões, campos, popups).
 - Navegação principal: abas no topo (Eventos, Jogar, Perfil) com indicador amarelo, como no Figma.
 - Telas de 430px de largura no Figma: use `max-w-app`.
 - Dark-first. Respeitar "reduzir movimento", alvo de toque ≥ 44px, contraste AA.
 - Construa uma tela por vez e compare com a captura do Figma antes de seguir.
+- O conector do Figma (plano Starter) tem limite baixo de chamadas. Se travar, abra o arquivo no
+  navegador (`figma.com/design/V4pFsk9q0LxI2gFbXJiNh1/Riff-app?node-id=...`): ele abre sem login.
+
+## Supabase
+
+- Projeto `riff-sports` (ref `azyjvcsdptxvdirblyka`), já linkado. `npx supabase db push` aplica as
+  migrações sem pedir senha.
+- O projeto **não expõe tabelas novas automaticamente**: toda tabela nova precisa de `grant`
+  explícito para `anon`/`authenticated`, além de RLS.
+- Configuração do Auth vive em `supabase/config.toml` (`[auth]`). Aplique com
+  `npx supabase config push` e confira o diff antes de aceitar. Confirmação de e-mail ligada.
+- Perfil: o app só abre com `onboarded_at` preenchido, e o banco exige `birth_date` para isso.
+- Fotos de perfil no bucket público `avatars`, cada pessoa grava só em `avatars/{user_id}/`.
+
+## Rotas
+
+- Entrada (só sem sessão): `/boas-vindas`, `/entrar`, `/cadastro`, `/cadastro/confirme-email`,
+  `/esqueci-senha`. Livres: `/nova-senha`, `/termos`, `/privacidade`.
+- Com sessão: `/cadastro/perfil` (cadastro em passos). Com cadastro concluído: `/eventos`,
+  `/jogar`, `/perfil`, `/perfil/editar`, `/jogadores/:id`.
+- Guardas em `src/app/guards.tsx`.
+
+## Testes
+
+- Unidade: o Supabase é sempre simulado (`src/test/supabase-mock.ts`); use `renderRoute` de
+  `src/test/render.tsx` para renderizar uma rota com sessão e perfil falsos.
+- E2E: `e2e/helpers.ts` (`fakeLogin`) cria uma sessão falsa e intercepta a tabela de perfis. Nenhum
+  teste cria conta no Supabase real.
 
 ## Voz do Riff
 
