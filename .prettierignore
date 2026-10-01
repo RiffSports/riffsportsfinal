@@ -1,0 +1,9 @@
+dist
+dev-dist
+node_modules
+coverage
+playwright-report
+test-results
+supabase/.temp
+supabase/seed.sql
+package-lock.json
