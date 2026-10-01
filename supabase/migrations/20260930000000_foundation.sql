@@ -92,8 +92,10 @@ create policy "Dono atualiza o próprio perfil"
   using ((select auth.uid()) = id)
   with check ((select auth.uid()) = id);
 
+-- Acesso explícito: o projeto não expõe tabelas novas automaticamente.
 -- Score e verificação só mudam pelo banco: o dono edita apenas estas colunas.
-revoke insert, update, delete on public.profiles from anon, authenticated;
+revoke all on public.profiles from anon, authenticated;
+grant select on public.profiles to authenticated;
 grant update (full_name, avatar_url, bio, birth_date, gender, accessibility_needs)
   on public.profiles to authenticated;
 
@@ -129,4 +131,5 @@ create policy "Catálogo de esportes é público"
   to anon, authenticated
   using (true);
 
-revoke insert, update, delete on public.sports from anon, authenticated;
+revoke all on public.sports from anon, authenticated;
+grant select on public.sports to anon, authenticated;
