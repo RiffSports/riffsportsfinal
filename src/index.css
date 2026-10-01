@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+/*
+ * Riff Sports — design tokens
+ * Fonte: Figma "Riff app", Page 2, seções "MVP" e "RIff publico fechado".
+ * Dark-first. O tema claro entra depois redefinindo estas variáveis em `.light`.
+ */
+:root {
+  /* Superfícies */
+  --background: #121515; /* fundo das telas do app (Eventos, Jogar, Perfil) */
+  --brand: #031d24; /* petróleo: login, cadastro, cabeçalho */
+  --card: #2b2f30; /* cards de evento, popups */
+  --chip: #425155; /* chips/filtros inativos */
+  --input: #3d4344; /* campos de formulário */
+  --border-input: #969999;
+  --border: #c8cccc;
+
+  /* Texto */
+  --foreground: #eef3f3;
+  --muted-foreground: #c8cccc;
+  --subtle-foreground: #b3b3b3;
+
+  /* Ações */
+  --primary: #f1d86e; /* amarelo Riff */
+  --primary-foreground: #232f32;
+  --secondary: #666666; /* secundário e desativado */
+  --secondary-foreground: #ffffff;
+  --selected: #eef3f3; /* chip selecionado */
+  --selected-foreground: #121515;
+  --destructive: #e5534b; /* confirmar no Figma (popups de sair/cancelar) */
+  --destructive-foreground: #ffffff;
+
+  --ring: #f1d86e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-chip: var(--chip);
+  --color-input: var(--input);
+  --color-border-input: var(--border-input);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-selected: var(--selected);
+  --color-selected-foreground: var(--selected-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--ring);
+
+  /* Tipografia: Roboto variável (wdth 75 = condensada, usada nos campos) */
+  --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+
+  /* Raios do Figma ("Inline Card Border-Radius Variable") */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 20px; /* cards de evento */
+  --radius-2xl: 24px; /* botões, campos, popups */
+
+  --shadow-card: 0px 4px 6px 0px rgb(0 0 0 / 0.2);
+  --shadow-button: 0px 2px 4px 0px rgb(50 50 71 / 0.06), 0px 2px 2px 0px rgb(50 50 71 / 0.06);
+
+  /* Largura de referência das telas no Figma */
+  --container-app: 430px;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    min-height: 100dvh;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility font-condensed {
+  font-variation-settings: 'wdth' 75;
+}
