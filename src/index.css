@@ -14,6 +14,7 @@
   --input: #3d4344; /* campos de formulário */
   --border-input: #969999;
   --border: #c8cccc;
+  --line: #eaeaea; /* borda inferior do cabeçalho, uploader tracejado */
 
   /* Texto */
   --foreground: #eef3f3;
@@ -25,6 +26,8 @@
   --primary-foreground: #232f32;
   --secondary: #666666; /* secundário e desativado */
   --secondary-foreground: #ffffff;
+  --disabled: #969999; /* "States/Global/Disable" */
+  --disabled-foreground: #425155;
   --selected: #eef3f3; /* chip selecionado */
   --selected-foreground: #121515;
   --destructive: #e5534b; /* confirmar no Figma (popups de sair/cancelar) */
@@ -43,12 +46,15 @@
   --color-input: var(--input);
   --color-border-input: var(--border-input);
   --color-border: var(--border);
+  --color-line: var(--line);
   --color-muted-foreground: var(--muted-foreground);
   --color-subtle-foreground: var(--subtle-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-disabled: var(--disabled);
+  --color-disabled-foreground: var(--disabled-foreground);
   --color-selected: var(--selected);
   --color-selected-foreground: var(--selected-foreground);
   --color-destructive: var(--destructive);
@@ -101,4 +107,14 @@
 
 @utility font-condensed {
   font-variation-settings: 'wdth' 75;
+}
+
+/* Capa do perfil (Figma: fundo azul abstrato atrás da foto). */
+@utility bg-profile-cover {
+  background-color: #031d24;
+  background-image:
+    radial-gradient(ellipse 55% 70% at 78% 62%, rgb(37 99 235 / 0.85), transparent 70%),
+    radial-gradient(ellipse 45% 60% at 45% 20%, rgb(14 116 144 / 0.7), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 95% 10%, rgb(30 64 175 / 0.6), transparent 70%),
+    linear-gradient(115deg, #031d24 10%, #0b2a4a 55%, #0f3a6b 100%);
 }

@@ -11,7 +11,7 @@ const tabs = [
 // Figma: "Mobile/03 - Header Back Nav with Page Title" com abas "Center/02 - Active".
 export function AppTabs() {
   return (
-    <header className="sticky top-0 z-10 bg-brand/90 pt-[env(safe-area-inset-top)] shadow-[inset_0_-1px_0_0_#eaeaea] backdrop-blur-md">
+    <header className="sticky top-0 z-10 bg-brand/90 pt-[env(safe-area-inset-top)] shadow-[inset_0_-1px_0_0_var(--line)] backdrop-blur-md">
       <nav
         aria-label="Principal"
         className="mx-auto flex h-[66px] max-w-app items-center gap-[30px] px-4"

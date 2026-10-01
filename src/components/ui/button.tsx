@@ -3,9 +3,10 @@ import type { ComponentProps } from 'react'
 import { cn } from '@/lib/utils'
 
 // Figma: "01 - Primary/01 - Default" (pill amarelo, Roboto Bold 14).
+// Desativado: "States/Global/Disable" (#969999 com texto #425155).
 // Altura mínima de 44px para respeitar o alvo de toque.
 const buttonVariants = cva(
-  'inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl px-4 text-sm font-bold whitespace-nowrap transition-[transform,background-color,opacity] active:scale-[0.98] disabled:pointer-events-none disabled:bg-secondary disabled:text-secondary-foreground [&_svg]:size-4 [&_svg]:shrink-0',
+  'inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl px-4 text-sm font-bold whitespace-nowrap transition-[transform,background-color,opacity] active:scale-[0.98] disabled:pointer-events-none disabled:bg-disabled disabled:text-disabled-foreground disabled:shadow-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
