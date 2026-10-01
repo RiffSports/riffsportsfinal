@@ -1,5 +1,5 @@
 -- Gerado por scripts/build_sports_seed.py. Não edite à mão.
--- 135 esportes.
+-- 134 esportes.
 insert into public.sports (slug, name, category) values
   ('futebol', 'Futebol', 'coletivo'),
   ('futsal', 'Futsal', 'coletivo'),
@@ -134,6 +134,5 @@ insert into public.sports (slug, name, category) values
   ('polo-a-cavalo', 'Polo a Cavalo', 'equestre'),
   ('laco', 'Laço', 'equestre'),
   ('esportes-caninos', 'Esportes Caninos', 'outros'),
-  ('jogos-medievais', 'Jogos Medievais', 'outros'),
-  ('esporte-paralimpico', 'Esporte Paralímpico', 'outros')
+  ('jogos-medievais', 'Jogos Medievais', 'outros')
 on conflict (slug) do update set name = excluded.name, category = excluded.category;

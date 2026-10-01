@@ -51,7 +51,7 @@ SPORTS = {
     ],
     "mente": ["Xadrez", "Jogos de Cartas", "E-sports"],
     "equestre": ["Hipismo", "Polo a Cavalo", "Laço"],
-    "outros": ["Esportes Caninos", "Jogos Medievais", "Esporte Paralímpico"],
+    "outros": ["Esportes Caninos", "Jogos Medievais"],
 }
 
 
