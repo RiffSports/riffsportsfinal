@@ -24,7 +24,9 @@ export const supabaseMock = {
     resetPasswordForEmail: vi.fn(),
     updateUser: vi.fn(),
   },
-  from: vi.fn((_table: string) => queryChain({ data: null, error: null })),
+  from: vi.fn<(table: string) => ReturnType<typeof queryChain>>(() =>
+    queryChain({ data: null, error: null }),
+  ),
   storage: { from: vi.fn() },
 }
 
