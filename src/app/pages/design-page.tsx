@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Chip } from '@/components/ui/chip'
 import { Input } from '@/components/ui/input'
+import { supabase } from '@/lib/supabase'
 
 const swatches = [
   ['background', 'bg-background'],
@@ -16,7 +17,6 @@ const swatches = [
 ] as const
 
 async function fetchSportsCount() {
-  const { supabase } = await import('@/lib/supabase')
   const { count, error } = await supabase.from('sports').select('*', { count: 'exact', head: true })
   if (error) throw error
   return count ?? 0
@@ -35,7 +35,7 @@ function SupabaseStatus() {
 // Vitrine do design system para conferir os tokens contra o Figma. Não é tela de produto.
 export function DesignPage() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 px-4 pt-6">
       <section className="flex flex-col gap-3">
         <h1 className="text-lg font-bold">Design system</h1>
         <SupabaseStatus />
