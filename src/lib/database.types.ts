@@ -15,9 +15,12 @@ export type Database = {
           bio: string | null
           birth_date: string | null
           created_at: string
+          display_name: string | null
           full_name: string
           gender: string | null
           id: string
+          instagram: string | null
+          onboarded_at: string | null
           presence_score: number | null
           updated_at: string
           verification_level: number
@@ -28,9 +31,12 @@ export type Database = {
           bio?: string | null
           birth_date?: string | null
           created_at?: string
+          display_name?: string | null
           full_name: string
           gender?: string | null
           id: string
+          instagram?: string | null
+          onboarded_at?: string | null
           presence_score?: number | null
           updated_at?: string
           verification_level?: number
@@ -41,9 +47,12 @@ export type Database = {
           bio?: string | null
           birth_date?: string | null
           created_at?: string
+          display_name?: string | null
           full_name?: string
           gender?: string | null
           id?: string
+          instagram?: string | null
+          onboarded_at?: string | null
           presence_score?: number | null
           updated_at?: string
           verification_level?: number
@@ -81,8 +90,10 @@ export type Database = {
           avatar_url: string | null
           bio: string | null
           created_at: string | null
+          display_name: string | null
           full_name: string | null
           id: string | null
+          instagram: string | null
           presence_score: number | null
           verification_level: number | null
         }
@@ -90,8 +101,10 @@ export type Database = {
           avatar_url?: string | null
           bio?: string | null
           created_at?: string | null
+          display_name?: string | null
           full_name?: string | null
           id?: string | null
+          instagram?: string | null
           presence_score?: number | null
           verification_level?: number | null
         }
@@ -99,8 +112,10 @@ export type Database = {
           avatar_url?: string | null
           bio?: string | null
           created_at?: string | null
+          display_name?: string | null
           full_name?: string | null
           id?: string | null
+          instagram?: string | null
           presence_score?: number | null
           verification_level?: number | null
         }
